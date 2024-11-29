@@ -13,3 +13,5 @@ https://favicon.io/emoji-favicons/alien-monster
 https://www.logoai.com/logo-maker
 
 Used component code from Pawsitive Poodles to save time
+
+Reused structure from footer from Pawsitive Poodles to save time
