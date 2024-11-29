@@ -1,261 +1,324 @@
-    <style>
-        .button  {
-            width: 100px;
-            height: 50px;
-            font-size: 16px;
-            border: none;
-            border-radius: 15px; /* Rounded corners */
-            cursor: pointer;
-            margin: 10px;
-            color: white;
-        }
-
-        .red { background-color: red; }
-        .green { background-color: green; }
-        .blue { background-color: blue; }
-        .yellow { background-color: yellow; color: black; }
-        .orange { background-color: orange; }
-        .purple { background-color: purple; }
-        .pink { background-color: pink; color: black; }
-        .brown { background-color: brown; }
-        .grey { background-color: grey; }
-        .cyan { background-color: cyan; color: black; }
-        .magenta { background-color: magenta; }
-        .lime { background-color: lime; color: black; }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .control-button {
-            margin: 10px;
-            font-size: 16px;
-        }
-        .blinking {
-            animation: blink 0.5s linear 3; /* Each button blinks three times */
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        
-        .input-display, .score-display , .option-display, .feedback  {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px;
-            text-align: center;
-        }
-        
-    .center-container { display: flex; 
-    justify-content: center; /* Center input boxes horizontally */ 
-    align-items: center; /* Center input boxes vertically */ 
-    flex-wrap: wrap; /* Ensure input boxes wrap to a new line if needed */ 
-    margin: 0 auto 10px; /* Center horizontally and add bottom margin */ 
-    text-align: center; /* Center text within the container */ 
+<style>
+    .button {
+        width: 100px;
+        height: 50px;
+        font-size: 16px;
+        border: none;
+        border-radius: 15px;
+        /* Rounded corners */
+        cursor: pointer;
+        margin: 10px;
+        color: white;
     }
-    
-    #submitButton { margin-top: 10px; }
 
-    </style>
+    .red {
+        background-color: red;
+    }
 
+    .green {
+        background-color: green;
+    }
 
-    <div id="game_header" class="container">
-        <h1>Colour Conundrum</h1>
-    </div>  
+    .blue {
+        background-color: blue;
+    }
 
-    <div class="container">
-        <button id="button1" class="button red">1</button>
-        <button id="button2" class="button green">2</button>
-        <button id="button3" class="button blue">3</button>
-        <button id="button4" class="button yellow">4</button>
-        <button id="button5" class="button orange">5</button>
-        <button id="button6" class="button purple">6</button>
-        <button id="button7" class="button pink">7</button>
-        <button id="button8" class="button brown">8</button>
-        <button id="button9" class="button grey">9</button>
-        <button id="button10" class="button cyan">10</button>
-        <button id="button11" class="button magenta">11</button>
-        <button id="button12" class="button lime">12</button>
-    </div>
-    
-    <div class="container option-display">
-        <label for="numberCount">Decide Your Sequence Length & Click Start to Go </label>
-    </div>  
-    <div class="container option-display center-container"> 
-        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="4" onclick="setSequenceLength(4)"> 4 </label> 
-        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="8" onclick="setSequenceLength(8)"> 8 </label> 
-        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="12" onclick="setSequenceLength(12)"> 12 </label> 
-    </div>
-    
+    .yellow {
+        background-color: yellow;
+        color: black;
+    }
+
+    .orange {
+        background-color: orange;
+    }
+
+    .purple {
+        background-color: purple;
+    }
+
+    .pink {
+        background-color: pink;
+        color: black;
+    }
+
+    .brown {
+        background-color: brown;
+    }
+
+    .grey {
+        background-color: grey;
+    }
+
+    .cyan {
+        background-color: cyan;
+        color: black;
+    }
+
+    .magenta {
+        background-color: magenta;
+    }
+
+    .lime {
+        background-color: lime;
+        color: black;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .control-button {
+        margin: 10px;
+        font-size: 16px;
+    }
+
+    .blinking {
+        animation: blink 0.5s linear 3;
+        /* Each button blinks three times */
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    .input-display,
+    .score-display,
+    .option-display,
+    .feedback {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .center-container {
+        display: flex;
+        justify-content: center;
+        /* Center input boxes horizontally */
+        align-items: center;
+        /* Center input boxes vertically */
+        flex-wrap: wrap;
+        /* Ensure input boxes wrap to a new line if needed */
+        margin: 0 auto 10px;
+        /* Center horizontally and add bottom margin */
+        text-align: center;
+        /* Center text within the container */
+    }
+
+    #submitButton {
+        margin-top: 10px;
+    }
+</style>
+<!-- game title -->
+<div id="game_header" class="container">
+    <h1>Colour Conundrum</h1>
+</div>
+<!-- button container -->
+<div class="container">
+    <button id="button1" class="button red">1</button>
+    <button id="button2" class="button green">2</button>
+    <button id="button3" class="button blue">3</button>
+    <button id="button4" class="button yellow">4</button>
+    <button id="button5" class="button orange">5</button>
+    <button id="button6" class="button purple">6</button>
+    <button id="button7" class="button pink">7</button>
+    <button id="button8" class="button brown">8</button>
+    <button id="button9" class="button grey">9</button>
+    <button id="button10" class="button cyan">10</button>
+    <button id="button11" class="button magenta">11</button>
+    <button id="button12" class="button lime">12</button>
+</div>
+<!-- game label  -->
+<div class="container option-display">
+    <label for="numberCount">Decide Your Sequence Length & Click Start to Go </label>
+</div>
+<!-- Sequence container -->
+<div class="container option-display center-container">
+    <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="4"
+            onclick="setSequenceLength(4)"> 4 </label>
+    <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="8"
+            onclick="setSequenceLength(8)"> 8 </label>
+    <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="12"
+            onclick="setSequenceLength(12)"> 12 </label>
+    <!-- number display container -->
     <div class="container ">
-        <button class="control-button" id="startButton" onclick="clearFeedback(); generateRandomNumbers(); startBlinkingButtons();">Start</button>
-    	<div id="numberDisplay" class="number-display"></div>
-    </div>  
-
-	<div class="container center-container" id="inputContainer"></div>
-
-    <div class="container" id="submitButton">
-            <button onclick="checkUserInput()">Submit</button>
+        <button class="control-button" id="startButton"
+            onclick="clearFeedback(); generateRandomNumbers(); startBlinkingButtons();">Start</button>
+        <div id="numberDisplay" class="number-display"></div>
     </div>
-    
-    <div class="container">
-        <div id="inputDisplay" class="input-display"></div>
-        <div id="feedback" class="feedback"></div>
-    </div>
-    
-    
-    <div class="container">
-        <div id="scoreDisplay" class="score-display">Score: 0</div>
-    </div>
+</div>
+<!-- input container -->
+<div class="container center-container" id="inputContainer"></div>
+<!-- submit button -->
+<div class="container" id="submitButton"><button onclick="checkUserInput()">Submit</button>
+</div>
 
-    <script>
-        let intervalId;
-        let inputfocus = 0;
-        let timeoutIds = [];
-        let score = 0;
-        let selectedSequenceLength = 4; // Default value
-        
-        document.getElementById("startButton").disabled = true;
-        document.getElementById("inputContainer").style.display = "none";
-        document.getElementById("numberDisplay").style.visibility = 'hidden';        
-		document.getElementById("submitButton").style.visibility = 'hidden';
-        document.getElementById("scoreDisplay").style.visibility = 'hidden';
-        
+<!-- feedback container -->
+<div class="container">
+    <div id="inputDisplay" class="input-display"></div>
+    <div id="feedback" class="feedback"></div>
+</div>
 
-        function setSequenceLength(length) {
-            selectedSequenceLength = length;
-            document.getElementById("startButton").disabled = false;
+<!-- score container -->
+<div class="container">
+    <div id="scoreDisplay" class="score-display">Score: 0</div>
+</div>
+
+<script>
+    // set document variables
+    let intervalId;
+    let inputfocus = 0;
+    let timeoutIds = [];
+    let score = 0;
+    let selectedSequenceLength = 4; // Default value
+
+    // set startup options
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("inputContainer").style.display = "none";
+    document.getElementById("numberDisplay").style.visibility = 'hidden';
+    document.getElementById("submitButton").style.visibility = 'hidden';
+    document.getElementById("scoreDisplay").style.visibility = 'hidden';
+
+    function setSequenceLength(length) {
+        selectedSequenceLength = length;
+        document.getElementById("startButton").disabled = false;
+    }
+
+    function generateRandomNumbers() {
+        const count = selectedSequenceLength;
+        const numbers = [];
+        while (numbers.length < count) {
+            const randomNumber = Math.floor(Math.random() * 12) + 1;
+            if (!numbers.includes(randomNumber)) {
+                numbers.push(randomNumber);
+            }
+        }
+        document.getElementById('numberDisplay').textContent = "Generated Numbers: " + numbers.join(', ');
+        createInputBoxes(count);
+    }
+
+    function createInputBoxes(count) {
+        const inputContainer = document.getElementById('inputContainer');
+        inputContainer.innerHTML = ''; // Clear previous input boxes
+
+        for (let i = 0; i < count; i++) {
+            const inputBox = document.createElement('input');
+            inputBox.type = 'number';
+            inputBox.id = `inputBox${i}`;
+            inputBox.style.margin = '5px';
+            inputBox.style.textAlign = 'center';
+            inputBox.style.width = '50px';
+            inputBox.addEventListener('input', function () { this.value = this.value.replace(/[^0-9]/g, ''); if (this.value < 1) { this.value = 1; } else if (this.value > 12) { this.value = 12; } });
+            inputContainer.appendChild(inputBox);
+        }
+        hideInputContainer()
+    }
+
+    function hideInputContainer() { 
+        document.getElementById("inputContainer").style.display = "none"; 
+    }
+
+
+    function showInputContainer() {
+        document.getElementById("inputContainer").style.display = "block";
+        document.getElementById(`inputBox${0}`).focus();
+        document.getElementById("submitButton").style.visibility = 'visible';
+    }
+
+    function startBlinkingButtons() {
+        const buttons = document.querySelectorAll('.button');
+        stopBlinkingButtons(); // Reset any ongoing blinking
+
+        const numbers = document.getElementById('numberDisplay').textContent.split(': ')[1].split(', ').map(Number);
+
+        function blinkButton(button) {
+            button.classList.add('blinking');
+            setTimeout(() => {
+                button.classList.remove('blinking');
+            }, 1000); // Each blink lasts for 1.5 seconds (3 blinks take 1.5 seconds)
         }
 
-        function generateRandomNumbers() {
-            const count = selectedSequenceLength;
-            const numbers = [];
-            while (numbers.length < count) {
-                const randomNumber = Math.floor(Math.random() * 12) + 1;
-                if (!numbers.includes(randomNumber)) {
-                    numbers.push(randomNumber);
+        function blinkSequentially(index) {
+            if (index < numbers.length) {
+                const buttonId = numbers[index];
+                const button = document.getElementById(`button${buttonId}`);
+                if (button) {
+                    blinkButton(button);
+                    timeoutIds.push(setTimeout(() => blinkSequentially(index + 1), 1000));
                 }
-            }
-            document.getElementById('numberDisplay').textContent = "Generated Numbers: " + numbers.join(', ');
-            createInputBoxes(count);
-        }
-
-        function createInputBoxes(count) {
-            const inputContainer = document.getElementById('inputContainer');
-            inputContainer.innerHTML = ''; // Clear previous input boxes
-            
-            for (let i = 0; i < count; i++) {
-                const inputBox = document.createElement('input');
-                inputBox.type = 'number';
-                inputBox.id = `inputBox${i}`;
-                inputBox.style.margin = '5px';
-                inputBox.style.textAlign = 'center';
-                inputBox.style.width = '50px';    
-				inputBox.addEventListener('input', function() { this.value = this.value.replace(/[^0-9]/g, '');                                 if (this.value < 1) { this.value = 1; } else if (this.value > 12) { this.value = 12; } });
-                inputContainer.appendChild(inputBox);
-            }
-            hideInputContainer()
-        }
-
-	function hideInputContainer() { document.getElementById("inputContainer").style.display = "none";}
-
-
-	function showInputContainer() { 
-        	document.getElementById("inputContainer").style.display = "block";
-  			document.getElementById(`inputBox${0}`).focus();
-            document.getElementById("submitButton").style.visibility  = 'visible';
-        }
-
-        function startBlinkingButtons() {
-            const buttons = document.querySelectorAll('.button');
-            stopBlinkingButtons(); // Reset any ongoing blinking
-            
-            const numbers = document.getElementById('numberDisplay').textContent.split(': ')[1].split(', ').map(Number);
-
-            function blinkButton(button) {
-                button.classList.add('blinking');
-                setTimeout(() => {
-                    button.classList.remove('blinking');
-                }, 1000); // Each blink lasts for 1.5 seconds (3 blinks take 1.5 seconds)
-            }
-
-            function blinkSequentially(index) {
-                if (index < numbers.length) {
-                    const buttonId = numbers[index];
-                    const button = document.getElementById(`button${buttonId}`);
-                    if (button) {
-                        blinkButton(button);
-                        timeoutIds.push(setTimeout(() => blinkSequentially(index + 1), 1000));
-                    }
-                } else { blinkingCompleted(); // Call function after all buttons have blinked }
-                }
-            }
-            blinkSequentially(0); // Start the sequential blinking
-        }
-
-
-function blinkingCompleted() { 
-		showInputContainer() ; 
-       
-}
-
-        function stopBlinkingButtons() {
-            timeoutIds.forEach(id => clearTimeout(id));
-            timeoutIds = [];
-            clearInterval(intervalId);
-
-            // Remove blinking class from all buttons
-            const buttons = document.querySelectorAll('.button');
-            buttons.forEach(button => button.classList.remove('blinking'));
-        }
-        
-
-
-
-        function checkUserInput() {
-        
-            
-            const numbers = document.getElementById('numberDisplay').textContent.split(': ')[1].split(', ').map(Number);
-            const userInput = Array.from({length: selectedSequenceLength}, (_, i) => parseInt(document.getElementById(`inputBox${i}`).value));
-
-            console.log("User Input: ", userInput);
-            console.log("Generated Numbers: ", numbers);
-            
-
-        if (userInput.some(num => isNaN(num) || num <= 0)) { 
-        document.getElementById('feedback').textContent = 'All values must be greater than 0.'; document.getElementById('feedback').style.color = 'red'; 
-        return; // Stop function execution 
-        }
-	
-
-            document.getElementById('inputDisplay').textContent = "Your Input: " + userInput.join(', ');
-
-            if (userInput.length === numbers.length && userInput.every((num, idx) => num === numbers[idx])) {
-                document.getElementById('feedback').textContent = '✔'; // Checkmark
-                document.getElementById('feedback').style.color = 'green';
-                score++;
-                document.getElementById('scoreDisplay').textContent = "Score: " + score;
             } else {
-                document.getElementById('feedback').textContent = '✖'; // Cross
-                document.getElementById('feedback').style.color = 'red';
+                blinkingCompleted(); // Call function after all buttons have blinked }
             }
-            
-            document.getElementById('scoreDisplay').style.visibility = 'visible';  
-            document.getElementById("startButton").style.visibility = 'visible';
-            document.getElementById("submitButton").style.visibility = 'hidden';
-            clearAll();
         }
-        
-        function clearFeedback() {
-            document.getElementById('inputDisplay').textContent = '';
-            document.getElementById('feedback').textContent = '';
-            document.getElementById("startButton").style.visibility = 'hidden';
-        }  
-        
-        function clearAll() {
-            const inputContainer = document.getElementById('inputContainer');
-            inputContainer.innerHTML = ''; // Clear all input boxes
-            document.getElementById('numberDisplay').textContent = '';
+        blinkSequentially(0); // Start the sequential blinking
+    }
+
+    function blinkingCompleted() {
+        showInputContainer();
+    }
+
+    function stopBlinkingButtons() {
+        timeoutIds.forEach(id => clearTimeout(id));
+        timeoutIds = [];
+        clearInterval(intervalId);
+
+        // Remove blinking class from all buttons
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => button.classList.remove('blinking'));
+    }
+
+
+
+
+    function checkUserInput() {
+
+
+        const numbers = document.getElementById('numberDisplay').textContent.split(': ')[1].split(', ').map(Number);
+        const userInput = Array.from({ length: selectedSequenceLength }, (_, i) => parseInt(document.getElementById(`inputBox${i}`).value));
+
+        console.log("User Input: ", userInput);
+        console.log("Generated Numbers: ", numbers);
+
+
+        if (userInput.some(num => isNaN(num) || num <= 0)) {
+            document.getElementById('feedback').textContent = 'All values must be greater than 0.'; document.getElementById('feedback').style.color = 'red';
+            return; // Stop function execution 
         }
 
 
-    </script>
+        document.getElementById('inputDisplay').textContent = "Your Input: " + userInput.join(', ');
+
+        if (userInput.length === numbers.length && userInput.every((num, idx) => num === numbers[idx])) {
+            document.getElementById('feedback').textContent = '✔'; // Checkmark
+            document.getElementById('feedback').style.color = 'green';
+            score++;
+            document.getElementById('scoreDisplay').textContent = "Score: " + score;
+        } else {
+            document.getElementById('feedback').textContent = '✖'; // Cross
+            document.getElementById('feedback').style.color = 'red';
+        }
+
+        document.getElementById('scoreDisplay').style.visibility = 'visible';
+        document.getElementById("startButton").style.visibility = 'visible';
+        document.getElementById("submitButton").style.visibility = 'hidden';
+        clearAll();
+    }
+
+    function clearFeedback() {
+        document.getElementById('inputDisplay').textContent = '';
+        document.getElementById('feedback').textContent = '';
+        document.getElementById("startButton").style.visibility = 'hidden';
+    }
+
+    function clearAll() {
+        const inputContainer = document.getElementById('inputContainer');
+        inputContainer.innerHTML = ''; // Clear all input boxes
+        document.getElementById('numberDisplay').textContent = '';
+    }
+
+
+</script>
