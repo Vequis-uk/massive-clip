@@ -1,0 +1,73 @@
+.footer-container {
+  display: flex;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to bottom, rgb(29, 78, 216), rgba(0, 0, 255, 0.4));
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .footer-contact {
+    padding: 0 20px;
+  }
+}
+
+.poodle-copyright {
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
+.mental-health-image {
+  margin-top: 10px;
+  height: 200px;
+  width: 250px;
+  border-radius: 20px;
+}
+
+.contact-information-links {
+  text-decoration: none;
+  color: #fff;
+}
+
+.contact-information-links:hover {
+  color: red;
+}
+
+/* Hover for social media icons */
+.social-media-icon:hover {
+  filter: invert(20%) sepia(100%) saturate(10000%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+@media screen and (max-width: 1030px) {
+  .footer-container {
+  }
+}
+
+/* Mobile Styling - Media Queries */
+@media screen and (max-width: 1030px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    /* Center align items when stacked */
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-contact {
+    padding: 10px 0;
+    /* Adjust padding for better spacing */
+  }
+}
