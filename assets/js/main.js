@@ -1,15 +1,28 @@
 /* Function that accepts file path and element id in order to inject into current page */
-/* Now skips element if element is not present */
 function loadComponent(filePath, elementId) {
     fetch(filePath)
         .then((response) => response.text())
         .then((text) => {
             const element = document.getElementById(elementId);
             if (element) {
+                // Inject the HTML content
                 element.innerHTML = text;
-                if (elementId === "poodle-testimonials") {
-                    loadTestimonialsScript();
-                }
+
+                // Execute any scripts inside the loaded content
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = text;
+                const scripts = tempDiv.querySelectorAll("script");
+                scripts.forEach((script) => {
+                    const newScript = document.createElement("script");
+                    if (script.src) {
+                        // External script
+                        newScript.src = script.src;
+                    } else {
+                        // Inline script
+                        newScript.textContent = script.textContent;
+                    }
+                    document.body.appendChild(newScript);
+                });
             }
         })
         .catch((error) => console.error("Error loading component:", error));
@@ -26,21 +39,3 @@ function loadAllComponents() {
 
 /* Watches to see if the dom is loaded and runs loadAllComponents if it is */
 document.addEventListener("DOMContentLoaded", loadAllComponents);
-
-/* Testing for david snake */
-
-document.getElementById('massive-clip-david-game').innerHTML = `
-    <style>
-        canvas {
-            display: block;
-            margin: 0 auto;
-            border: 1px solid black;
-        }
-    </style>
-
-    <h1>Snake Game</h1>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <button id="startButton">START GAME</button>
-
-    <script src="../../assets/js/david-snake.js"></script>
-`;
