@@ -8,9 +8,14 @@ The name of the project is MassiveClip which is a parody of the original name.
 
 ### Resources
 
+#Favicon
 https://favicon.io/emoji-favicons/alien-monster
 
+#Logo
 https://www.logoai.com/logo-maker
+
+#Image Background Remover
+https://www.remove.bg/upload
 
 Used component code from Pawsitive Poodles to save time
 
