@@ -1,72 +1,91 @@
-<div class="abdi-container">
+<div class="connect4-container">
     <style>
-        .abdi-container {
+        .connect4-container {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            border: 2px solid #87ceeb;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            margin: 20px auto;
-            padding: 20px;
             text-align: center;
+            margin: 20px auto;
+            max-width: 350px;
         }
 
-        .abdi-container .title {
-            font-size: 24px;
-            font-weight: bold;
+        .title {
+            font-size: 28px;
             margin-bottom: 15px;
             color: #333;
         }
 
-        .abdi-container .choices {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(7, 40px);
+            grid-gap: 5px;
+            justify-content: center;
             margin-top: 20px;
         }
 
-        .abdi-container .button {
-            width: 90px;
+        .cell {
+            width: 40px;
             height: 40px;
-            font-size: 16px;
-            background-color: #87ceeb;
-            color: white;
-            border: none;
+            background-color: #87ceeb; /* Light blue */
+            border: 1px solid #000;
             border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
         }
 
-        .abdi-container .feedback {
-            font-size: 18px;
-            color: #666;
-            margin-top: 20px;
+        .instructions {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
         }
     </style>
 
-    <div class="title">Rock, Paper, Scissors</div>
-    <div class="choices">
-        <button class="button" onclick="playerChoice('Rock')">Rock</button>
-        <button class="button" onclick="playerChoice('Paper')">Paper</button>
-        <button class="button" onclick="playerChoice('Scissors')">Scissors</button>
-    </div>
-    <div class="feedback" id="feedback">Make your choice!</div>
+    <div class="title">Connect 4</div>
+    <div class="grid">
+        <!-- 6 rows x 7 columns -->
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
 
-    <script>
-        function playerChoice(playerMove) {
-            const feedback = document.getElementById('feedback');
-            const moves = ["Rock", "Paper", "Scissors"];
-            const computerMove = moves[Math.floor(Math.random() * 3)];
-            feedback.textContent = `You chose ${playerMove}. Computer chose ${computerMove}.`;
-            if (playerMove === computerMove) {
-                feedback.textContent += "Draw!";
-            } else if (
-            (playerMove === "Rock" && computerMove === "Scissors") ||
-            (playerMove === "Paper" && computerMove === "Rock") ||
-           (playerMove === "Scissors" && computerMove === "Paper")
-            ) {
-                feedback.textContent += " You win!";
-            } else {
-                feedback.textContent += " You lose!";
-            }
-        }
-    </script>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="instructions">Game in progress...</div>
 </div>
