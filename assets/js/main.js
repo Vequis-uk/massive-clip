@@ -26,3 +26,21 @@ function loadAllComponents() {
 
 /* Watches to see if the dom is loaded and runs loadAllComponents if it is */
 document.addEventListener("DOMContentLoaded", loadAllComponents);
+
+/* Testing for david snake */
+
+document.getElementById('massive-clip-david-game').innerHTML = `
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+    </style>
+
+    <h1>Snake Game</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <button id="startButton">START GAME</button>
+
+    <script src="../../assets/js/david-snake.js"></script>
+`;
