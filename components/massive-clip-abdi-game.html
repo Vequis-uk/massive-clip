@@ -1,3 +1,55 @@
 <div>
-    <h1>TEST</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin: 20px 0;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .feedback {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="title">Number Guessing Game</div>
+        <div id="instructions">Guess the secret number!</div>
+        <div class="input-container">
+            <input id="guessInput" type="number" placeholder="Enter your guess" disabled />
+            <button class="button" id="guessButton" disabled>Guess</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        
+    </script>
 </div>
