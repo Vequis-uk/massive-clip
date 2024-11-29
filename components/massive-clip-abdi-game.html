@@ -3,7 +3,7 @@
         .abdi-container {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
-            border: 2px solid #87ceeb; /* Light blue border */
+            border: 2px solid #87ceeb;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -27,7 +27,7 @@
             width: 90px;
             height: 40px;
             font-size: 16px;
-            background-color: #87ceeb; /* Light blue */
+            background-color: #87ceeb;
             color: white;
             border: none;
             border-radius: 5px;
@@ -51,9 +51,22 @@
     <div class="feedback" id="feedback">Make your choice!</div>
 
     <script>
-        function playerChoice(choice) {
+        function playerChoice(playerMove) {
             const feedback = document.getElementById('feedback');
-            feedback.textContent = `You chose ${choice}.`;
+            const moves = ["Rock", "Paper", "Scissors"];
+            const computerMove = moves[Math.floor(Math.random() * 3)];
+            feedback.textContent = `You chose ${playerMove}. Computer chose ${computerMove}.`;
+            if (playerMove === computerMove) {
+                feedback.textContent += "Draw!";
+            } else if (
+            (playerMove === "Rock" && computerMove === "Scissors") ||
+            (playerMove === "Paper" && computerMove === "Rock") ||
+           (playerMove === "Scissors" && computerMove === "Paper")
+            ) {
+                feedback.textContent += " You win!";
+            } else {
+                feedback.textContent += " You lose!";
+            }
         }
     </script>
 </div>
