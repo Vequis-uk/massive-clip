@@ -1,2 +1,4 @@
-.solid-border { border: 10px solid blue; /* Updated thickness and color */ 
-    padding: 30px; /* Optional, for spacing within the border */ }
+.solid-border {
+    border: 10px solid #1d4ed8; /* Updated thickness and color */
+    padding: 30px; /* Optional, for spacing within the border */
+}
