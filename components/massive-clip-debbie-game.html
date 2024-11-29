@@ -80,19 +80,18 @@
     <div class="container option-display">
         <label for="numberCount">Decide Your Sequence Length & Click Start to Go </label>
     </div>  
-    
-    <div class="container option-display"> 
-      <label> <input type="radio" name="sequenceLength" value="4" onclick="setSequenceLength(4)"> 4 </label> 
-      <label> <input type="radio" name="sequenceLength" value="8" onclick="setSequenceLength(8)"> 8 </label> 
-      <label> <input type="radio" name="sequenceLength" value="12" onclick="setSequenceLength(12)"> 12 </label> 
+    <div class="container option-display center-container"> 
+        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="4" onclick="setSequenceLength(4)"> 4 </label> 
+        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="8" onclick="setSequenceLength(8)"> 8 </label> 
+        <label style="margin-right: 15px;"> <input type="radio" name="sequenceLength" value="12" onclick="setSequenceLength(12)"> 12 </label> 
     </div>
     
-    <div class="container">
+    <div class="container ">
         <button class="control-button" id="startButton" onclick="clearFeedback(); generateRandomNumbers(); startBlinkingButtons();">Start</button>
     	<div id="numberDisplay" class="number-display"></div>
     </div>  
 
-	<div class="container" id="inputContainer"></div>
+	<div class="container center-container" id="inputContainer"></div>
 
     <div class="container" id="submitButton">
             <button onclick="checkUserInput()">Submit</button>
@@ -150,7 +149,7 @@
                 inputBox.id = `inputBox${i}`;
                 inputBox.style.margin = '5px';
                 inputBox.style.textAlign = 'center';
-                
+                inputBox.style.width = '50px';    
 				inputBox.addEventListener('input', function() { this.value = this.value.replace(/[^0-9]/g, '');                                 if (this.value < 1) { this.value = 1; } else if (this.value > 12) { this.value = 12; } });
                 inputContainer.appendChild(inputBox);
             }
