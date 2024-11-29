@@ -2,7 +2,7 @@
   display: flex;
   padding: 20px;
   color: #fff;
-  background: linear-gradient(to bottom, rgb(29, 78, 216), rgba(0, 0, 255, 0.4));
+  background: #1d4ed8;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   justify-content: space-evenly;

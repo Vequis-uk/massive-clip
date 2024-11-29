@@ -3,16 +3,68 @@
     canvas {
         display: block;
         margin: 0 auto;
-        border: 1px solid black;
+        border: 5px solid black;
+        border-radius: 20px;
+        background: rgb(255, 255, 255, 0.8);
+        background-blend-mode: multiply;
+        background-size: cover;
     }
+
+    .snake-main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        background-image: url("../assets/images/not-windows-xp-background.webp");
+        background-size: cover;
+    }
+
+    .snake-start-button {
+        margin: 20px 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .snake-start-button:hover {
+        background-color: black;
+        color: #4CAF50;
+    }
+
+    .snake-images {
+        width: 100px;
+        height: 100px;
+    }
+
+    .snake-logo {
+        width: 200px;
+        height: 100px;
+    }
+
+    .snake-header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 </style>
 
-<div>
-    <h1>Snake Game</h1>
+<div class="snake-main-container">
+    <div class="snake-header-container">
+        <img src="../assets/images/snake-image-1.png" alt="snake-image-1" class="snake-images">
+        <img src="../assets/images/snake-logo.png" alt="snake-logo" class="snake-logo">
+        <img src="../assets/images/snake-image-2.png" alt="snake-image-2" class="snake-images">
+    </div>
     <!-- Main Game Canvas -->
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <!-- Button To Start Game -->
-    <button onclick="startGame()">START GAME</button>
+    <button onclick="startGame()" class="snake-start-button">START GAME</button>
 
     <script>
         /* Get the game canvas */
@@ -111,7 +163,7 @@
         /* Start the game when the button is clicked */
         function startGame() {
             if (game) clearInterval(game); // Clear any existing game loop
-            game = setInterval(gameLoop, 500); // Start a new game loop
+            game = setInterval(gameLoop, 300); // Start a new game loop
         }
 
     </script>
