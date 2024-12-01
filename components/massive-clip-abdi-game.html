@@ -30,10 +30,6 @@
             cursor: pointer;
         }
 
-        .abdi-container .cell:hover {
-            background-color: #4682b4; /* Darker blue for hover effect */
-        }
-
         .abdi-container .cell[data-player="1"] {
             background-color: red;
         }
@@ -52,60 +48,59 @@
     <div class="title">Connect 4</div>
     <div class="grid" id="grid">
         <!-- 6 rows x 7 columns -->
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="0"></div>
+        <div class="cell" data-column="1" data-row="0"></div>
+        <div class="cell" data-column="2" data-row="0"></div>
+        <div class="cell" data-column="3" data-row="0"></div>
+        <div class="cell" data-column="4" data-row="0"></div>
+        <div class="cell" data-column="5" data-row="0"></div>
+        <div class="cell" data-column="6" data-row="0"></div>
 
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="1"></div>
+        <div class="cell" data-column="1" data-row="1"></div>
+        <div class="cell" data-column="2" data-row="1"></div>
+        <div class="cell" data-column="3" data-row="1"></div>
+        <div class="cell" data-column="4" data-row="1"></div>
+        <div class="cell" data-column="5" data-row="1"></div>
+        <div class="cell" data-column="6" data-row="1"></div>
 
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="2"></div>
+        <div class="cell" data-column="1" data-row="2"></div>
+        <div class="cell" data-column="2" data-row="2"></div>
+        <div class="cell" data-column="3" data-row="2"></div>
+        <div class="cell" data-column="4" data-row="2"></div>
+        <div class="cell" data-column="5" data-row="2"></div>
+        <div class="cell" data-column="6" data-row="2"></div>
 
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="3"></div>
+        <div class="cell" data-column="1" data-row="3"></div>
+        <div class="cell" data-column="2" data-row="3"></div>
+        <div class="cell" data-column="3" data-row="3"></div>
+        <div class="cell" data-column="4" data-row="3"></div>
+        <div class="cell" data-column="5" data-row="3"></div>
+        <div class="cell" data-column="6" data-row="3"></div>
 
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="4"></div>
+        <div class="cell" data-column="1" data-row="4"></div>
+        <div class="cell" data-column="2" data-row="4"></div>
+        <div class="cell" data-column="3" data-row="4"></div>
+        <div class="cell" data-column="4" data-row="4"></div>
+        <div class="cell" data-column="5" data-row="4"></div>
+        <div class="cell" data-column="6" data-row="4"></div>
 
-        <div class="cell" data-column="0"></div>
-        <div class="cell" data-column="1"></div>
-        <div class="cell" data-column="2"></div>
-        <div class="cell" data-column="3"></div>
-        <div class="cell" data-column="4"></div>
-        <div class="cell" data-column="5"></div>
-        <div class="cell" data-column="6"></div>
+        <div class="cell" data-column="0" data-row="5"></div>
+        <div class="cell" data-column="1" data-row="5"></div>
+        <div class="cell" data-column="2" data-row="5"></div>
+        <div class="cell" data-column="3" data-row="5"></div>
+        <div class="cell" data-column="4" data-row="5"></div>
+        <div class="cell" data-column="5" data-row="5"></div>
+        <div class="cell" data-column="6" data-row="5"></div>
     </div>
     <div class="instructions">Player 1's turn. Click a column to drop a piece.</div>
 
     <script>
         const grid = document.getElementById("grid");
-        let currentPlayer = 1;
-
+        let currentPlayer = 1; 
         grid.addEventListener("click", (event) => {
             const cell = event.target;
             if (!cell.classList.contains("cell")) {
@@ -115,17 +110,67 @@
             const columnCells = Array.from(
                 document.querySelectorAll(`.cell[data-column="${column}"]`)
             ).reverse();
-            const emptyCell = columnCells.find(
-                (cell) => !cell.dataset.player
-            );
+            const emptyCell = columnCells.find((cell) => !cell.dataset.player);
             if (emptyCell) {
                 emptyCell.dataset.player = currentPlayer;
                 emptyCell.style.backgroundColor =
                     currentPlayer === 1 ? "red" : "yellow";
+                if (checkWin(currentPlayer)) {
+                    const instructions = document.querySelector(".instructions");
+                    instructions.textContent = `Player ${currentPlayer} wins!`;
+                    grid.removeEventListener("click", arguments.callee);
+                    return;
+                }
                 currentPlayer = currentPlayer === 1 ? 2 : 1;
                 const instructions = document.querySelector(".instructions");
                 instructions.textContent = `Player ${currentPlayer}'s turn. Click a column to drop a piece.`;
             }
         });
+        function checkWin(player) {
+            return checkHorizontalWin(player) || checkVerticalWin(player);
+        }
+        function checkHorizontalWin(player) {
+            const rows = 6;
+            const columns = 7;
+
+            for (let row = 0; row < rows; row++) {
+                let count = 0;
+
+                for (let col = 0; col < columns; col++) {
+                    const cell = document.querySelector(
+                        `.cell[data-row="${row}"][data-column="${col}"]`
+                    );
+                    if (cell.dataset.player == player) {
+                        count++;
+                        if (count >= 4) return true; // Win detected
+                    } else {
+                        count = 0;
+                    }
+                }
+            }
+            return false;
+        }
+        function checkVerticalWin(player) {
+            const rows = 6;
+            const columns = 7;
+
+            for (let col = 0; col < columns; col++) {
+                let count = 0;
+
+                for (let row = 0; row < rows; row++) {
+                    const cell = document.querySelector(
+                        `.cell[data-row="${row}"][data-column="${col}"]`
+                    );
+
+                    if (cell.dataset.player == player) {
+                        count++;
+                        if (count >= 4) return true; // Win detected
+                    } else {
+                        count = 0; // Reset counter
+                    }
+                }
+            }
+            return false;
+        }
     </script>
 </div>
