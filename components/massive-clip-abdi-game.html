@@ -104,18 +104,24 @@
 
     <script>
         const grid = document.getElementById("grid");
-        let currentPlayer = 1; // Player 1 starts
+        let currentPlayer = 1;
 
         grid.addEventListener("click", (event) => {
             const cell = event.target;
+            if (!cell.classList.contains("cell")) {
+                return;
+            }
             const column = cell.dataset.column;
             const columnCells = Array.from(
                 document.querySelectorAll(`.cell[data-column="${column}"]`)
-            );const emptyCell = columnCells.find(
+            ).reverse();
+            const emptyCell = columnCells.find(
                 (cell) => !cell.dataset.player
             );
-if (emptyCell) {
+            if (emptyCell) {
                 emptyCell.dataset.player = currentPlayer;
+                emptyCell.style.backgroundColor =
+                    currentPlayer === 1 ? "red" : "yellow";
                 currentPlayer = currentPlayer === 1 ? 2 : 1;
                 const instructions = document.querySelector(".instructions");
                 instructions.textContent = `Player ${currentPlayer}'s turn. Click a column to drop a piece.`;
@@ -123,4 +129,3 @@ if (emptyCell) {
         });
     </script>
 </div>
-
