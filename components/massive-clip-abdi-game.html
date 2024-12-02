@@ -100,7 +100,7 @@
 
     <script>
         const grid = document.getElementById("grid");
-        let currentPlayer = 1; 
+        let currentPlayer = 1; // Player 1 starts
         grid.addEventListener("click", (event) => {
             const cell = event.target;
             if (!cell.classList.contains("cell")) {
@@ -110,14 +110,17 @@
             const columnCells = Array.from(
                 document.querySelectorAll(`.cell[data-column="${column}"]`)
             ).reverse();
+
             const emptyCell = columnCells.find((cell) => !cell.dataset.player);
             if (emptyCell) {
                 emptyCell.dataset.player = currentPlayer;
                 emptyCell.style.backgroundColor =
                     currentPlayer === 1 ? "red" : "yellow";
-                if (checkWin(currentPlayer)) {
+                const winningCells = checkWin(currentPlayer);
+                if (winningCells) {
                     const instructions = document.querySelector(".instructions");
                     instructions.textContent = `Player ${currentPlayer} wins!`;
+                    highlightWinningCells(winningCells);
                     grid.removeEventListener("click", arguments.callee);
                     return;
                 }
@@ -127,7 +130,11 @@
             }
         });
         function checkWin(player) {
-            return checkHorizontalWin(player) || checkVerticalWin(player);
+            return (
+                checkHorizontalWin(player) ||
+                checkVerticalWin(player) ||
+                checkDiagonalWin(player)
+            );
         }
         function checkHorizontalWin(player) {
             const rows = 6;
@@ -135,42 +142,89 @@
 
             for (let row = 0; row < rows; row++) {
                 let count = 0;
+                let winningCells = [];
 
                 for (let col = 0; col < columns; col++) {
                     const cell = document.querySelector(
                         `.cell[data-row="${row}"][data-column="${col}"]`
                     );
+
                     if (cell.dataset.player == player) {
                         count++;
-                        if (count >= 4) return true; // Win detected
+                        winningCells.push(cell);
+                        if (count >= 4) return winningCells;
                     } else {
                         count = 0;
+                        winningCells = [];
                     }
                 }
             }
-            return false;
+            return null;
         }
         function checkVerticalWin(player) {
             const rows = 6;
             const columns = 7;
-
             for (let col = 0; col < columns; col++) {
                 let count = 0;
-
+                let winningCells = [];
                 for (let row = 0; row < rows; row++) {
                     const cell = document.querySelector(
                         `.cell[data-row="${row}"][data-column="${col}"]`
                     );
-
                     if (cell.dataset.player == player) {
                         count++;
-                        if (count >= 4) return true; // Win detected
+                        winningCells.push(cell);
+                        if (count >= 4) return winningCells; 
                     } else {
-                        count = 0; // Reset counter
+                        count = 0;
+                        winningCells = [];
                     }
                 }
             }
-            return false;
+            return null;
+        }
+        function checkDiagonalWin(player) {
+            const rows = 6;
+            const columns = 7;
+            for (let row = 0; row <= rows - 4; row++) {
+                for (let col = 0; col <= columns - 4; col++) {
+                    const winningCells = [];
+                    for (let i = 0; i < 4; i++) {
+                        const cell = document.querySelector(
+                            `.cell[data-row="${row + i}"][data-column="${col + i}"]`
+                        );
+                        if (cell.dataset.player == player) {
+                            winningCells.push(cell);
+                        } else {
+                            break;
+                        }
+                    }
+                    if (winningCells.length === 4) return winningCells;
+                }
+            }
+            for (let row = 0; row <= rows - 4; row++) {
+                for (let col = 3; col < columns; col++) {
+                    const winningCells = [];
+                    for (let i = 0; i < 4; i++) {
+                        const cell = document.querySelector(
+                            `.cell[data-row="${row + i}"][data-column="${col - i}"]`
+                        );
+                        if (cell.dataset.player == player) {
+                            winningCells.push(cell);
+                        } else {
+                            break;
+                        }
+                    }
+                    if (winningCells.length === 4) return winningCells;
+                }
+            }
+
+            return null;
+        }
+        function highlightWinningCells(cells) {
+            cells.forEach((cell) => {
+                cell.classList.add("winning-cell");
+            });
         }
     </script>
 </div>
