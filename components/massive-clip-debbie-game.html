@@ -9,7 +9,9 @@
             margin: 10px;
             color: white;
         }
-
+        .debbie-game-styling {
+            background: url("../../massive-clip/assets/images/debbie-background.jpg");
+        }
         .red { background-color: red; }
         .green { background-color: green; }
         .blue { background-color: blue; }
@@ -28,8 +30,26 @@
             justify-content: center;
         }
         .control-button {
-            margin: 10px;
-            font-size: 16px;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 22px;
+            font-weight: bold;
+            background-color: darkmagenta;
+            color: white;
+            border: 5px solid black;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 120px;
+        }
+        .control-button:hover {
+            background-color: dodgerblue;
+            border: 5px solid darkmagenta;
+            color: black;
+        }
+        .internal-game-wrapper {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding-top: 80px;
         }
         .blinking {
             animation: blink 0.5s linear 3; /* Each button blinks three times */
@@ -37,11 +57,11 @@
         @keyframes blink {
             50% { opacity: 0; }
         }
-        
         .input-display, .score-display , .option-display, .feedback  {
             font-size: 24px;
             font-weight: bold;
-            margin: 20px;
+            margin: auto;
+            padding: 20px 0;
             text-align: center;
         }
         
@@ -57,7 +77,8 @@
 
     </style>
 
-
+<div class="internal-game-section debbie-game-styling">
+    <div class="internal-game-wrapper">
     <div id="game_header" class="container">
         <h1>Colour Conundrum</h1>
     </div>  
@@ -259,3 +280,5 @@ function blinkingCompleted() {
 
 
     </script>
+</div>
+</div>
