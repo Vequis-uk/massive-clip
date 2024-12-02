@@ -23,3 +23,14 @@
 body {
     background: lightcyan;
 }
+
+.game-intro-section {
+    font-size: 22px;
+    padding: 20px;
+    background: #1d4ed8;
+    color: white;
+}
+
+.main-logo {
+    margin-bottom: 40px;
+}
