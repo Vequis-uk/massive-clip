@@ -1,74 +1,89 @@
-<div class="abdi-container internal-game-section">
-    <style>
-        .abdi-container {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px auto;
-            max-width: 400px;
-        }
+<style>
+    .abdi-container {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px auto;
+        max-width: 350px;
+    }
 
-        .abdi-container .title {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #333;
-        }
+    .abdi-container .title {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #333;
+    }
 
-        .abdi-container .board-container {
-            background: linear-gradient(to bottom, #1e3a5f, #304b78); /* Light-dark blue gradient */
-            padding: 20px;
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-        }
+    .abdi-container .grid {
+        display: grid;
+        grid-template-columns: repeat(7, 40px);
+        grid-gap: 5px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .abdi-container .board-container {
+        background: linear-gradient(to bottom, #1e3a5f, #304b78); /* Light-dark blue gradient */
+        padding: 20px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    }
 
-        .abdi-container .grid {
-            display: grid;
-            grid-template-columns: repeat(7, 40px);
-            grid-gap: 5px;
-            justify-content: center;
-        }
+    .abdi-container .grid {
+        display: grid;
+        grid-template-columns: repeat(7, 40px);
+        grid-gap: 5px;
+        justify-content: center;
+    }
 
-        .abdi-container .cell {
-            width: 40px;
-            height: 40px;
-            background-color: #87ceeb; /* Light blue */
-            border: 1px solid #000;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .abdi-container .cell {
+        width: 40px;
+        height: 40px;
+        background-color: #87ceeb; /* Light blue */
+        border: 1px solid #000;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        .abdi-container .cell[data-player="1"] {
-            background-color: red;
-        }
+    .abdi-container .cell[data-player="1"] {
+        background-color: red;
+    }
 
-        .abdi-container .cell[data-player="2"] {
-            background-color: yellow;
-        }
+    .abdi-container .cell[data-player="2"] {
+        background-color: yellow;
+    }
 
-        .abdi-container .cell.winning-cell {
-            border: 3px solid gold; /* Highlight winning cells */
-        }
+    .abdi-container .cell.winning-cell {
+        border: 3px solid gold; /* Highlight winning cells */
+    }
 
-        .abdi-container .instructions {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #fff; /* White text for contrast */
-        }
+    .abdi-container .instructions {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #fff; /* White text for contrast */
+    }
 
-        .abdi-container .restart-button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .abdi-container .restart-button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        .abdi-container .restart-button:hover {
-            background-color: #555;
-        }
-    </style>
+    .abdi-container .restart-button:hover {
+        background-color: #555;
+    }
+
+    .adding-height {
+        padding-top: 90px;
+        min-height: 700px;
+        background: linear-gradient(to bottom, yellow, red);
+    }
+</style>
+
+<div class="internal-game-section adding-height">
+    <div class="abdi-container">
 
     <div class="title">Connect 4</div>
     <div class="grid" id="grid">
@@ -267,4 +282,5 @@
             });
         }
     </script>
+</div>
 </div>
