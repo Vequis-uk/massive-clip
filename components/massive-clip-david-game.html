@@ -16,7 +16,7 @@
         justify-content: center;
         align-items: center;
         padding-top: 40px;
-        background-image: url("../assets/images/not-windows-xp-background.webp");
+        background: darkolivegreen;
         background-size: cover;
     }
 
@@ -27,13 +27,14 @@
         font-weight: bold;
         background-color: #4CAF50;
         color: white;
-        border: none;
+        border: 5px solid black;
         cursor: pointer;
         border-radius: 20px;
     }
 
     .snake-start-button:hover {
         background-color: black;
+        border: 5px solid #4CAF50;
         color: #4CAF50;
     }
 
@@ -53,16 +54,63 @@
         align-items: center;
     }
 
+    .canvas-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-right: 45px;
+    }
+
+    .controls-container, .score-container {
+        border: 5px solid black;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 10px;
+        background: rgba(255, 255, 255, 0.8);
+
+        .controls-text, .score-text {
+            margin: 0;
+        }
+
+        .controls-text, p, .score-text {
+            font-size: 22px;
+        }
+    }
+
 </style>
 
-<div class="snake-main-container">
+<div class="snake-main-container internal-game-section">
     <div class="snake-header-container">
-        <img src="../assets/images/snake-image-1.png" alt="snake-image-1" class="snake-images">
-        <img src="../assets/images/snake-logo.png" alt="snake-logo" class="snake-logo">
-        <img src="../assets/images/snake-image-2.png" alt="snake-image-2" class="snake-images">
+        <img src="../../massive-clip/assets/images/snake-image-1.png" alt="snake-image-1" class="snake-images">
+        <img src="../../massive-clip/assets/images/snake-logo.png" alt="snake-logo" class="snake-logo">
+        <img src="../../massive-clip/assets/images/snake-image-2.png" alt="snake-image-2" class="snake-images">
     </div>
-    <!-- Main Game Canvas -->
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div class="canvas-container">
+        <!-- Totally Real Scoreboard -->
+        <div class="score-container">
+            <h3 class="score-text">High Scores:</h3>
+            <p class="score-text">9002: Bella</p>
+            <p class="score-text">9001: Shadow</p>
+            <p class="score-text">9001: Marley</p>
+            <p class="score-text">9001: Coco</p>
+            <p class="score-text">9001: Foggy</p>
+            <p class="score-text">9001: Zebedee</p>
+        </div>
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <!-- Game Instructions -->
+        <div class="controls-container">
+            <h3 class="controls-text">Controls:</h3>
+            <p class="controls-text">W: Up</p>
+            <p class="controls-text">S: Down</p>
+            <p class="controls-text">A: Left</p>
+            <p class="controls-text">D: Right</p>
+        </div>
+    </div>
+
+
     <!-- Button To Start Game -->
     <button onclick="startGame()" class="snake-start-button">START GAME</button>
 
