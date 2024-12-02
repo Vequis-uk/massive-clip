@@ -33,8 +33,8 @@ https://medium.com/codex/making-a-snake-game-with-pygame-7144cc40094
 #Snake Logos around title logo
 https://www.vectorstock.com/royalty-free-vector/8-bit-pixel-of-snake-animal-for-game-assets-vector-46711964
 
-#Snake game background
-https://i.pinimg.com/736x/37/71/60/37716068933bae2f9b11ff90bc91b015.jpg // may not use
+#Colour Conundrum background
+https://live.staticflickr.com/4096/4910401724_c809bcfd3b_b.jpg
 
 Used component code from Pawsitive Poodles to save time
 
